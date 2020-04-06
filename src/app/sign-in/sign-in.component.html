@@ -1,5 +1,5 @@
 <div style="overflow-x: hidden;" class="login-wrapper">
-    <form class="login">
+    <form class="login" [formGroup]="signinForm" (ngSubmit)="signIn()">
         <section class="title">
             <h3 class="welcome">Welcome to</h3>
             ReIMAGE
@@ -8,21 +8,21 @@
         <div class="login-group">
             <clr-input-container>
                 <label class="clr-sr-only">Username</label>
-                <input type="text" name="username" clrInput placeholder="Username"/>
+                <input type="text" name="username" clrInput placeholder="Username" formControlName="username"/>
             </clr-input-container>
             <clr-password-container>
                 <label class="clr-sr-only">Password</label>
-                <input type="password" name="password" clrPassword placeholder="Password"/>
+                <input type="password" name="password" clrPassword placeholder="Password" formControlName="password"/>
             </clr-password-container>
             <clr-checkbox-wrapper>
                 <label>Remember me</label>
-                <input type="checkbox" name="rememberMe" clrCheckbox/>
+                <input type="checkbox" name="rememberMe" clrCheckbox formControlName="rememberMe"/>
             </clr-checkbox-wrapper>
-            <div class="error active">
+            <div *ngIf="auth_failure" class="error active">
                 Invalid user name or password
             </div>
-            <button type="submit" class="btn btn-primary">NEXT</button>
-            <a href="javascript://" class="signup">Create an Account</a>
+            <button type="submit" class="btn btn-primary" [disabled]="!signinForm.valid">NEXT</button>
+            <a class="signup">Create an Account</a>
         </div>
     </form>
 </div>

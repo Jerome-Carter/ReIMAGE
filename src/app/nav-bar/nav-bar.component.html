@@ -10,16 +10,17 @@
         <a class="nav-link"><span class="nav-text">Editor</span></a>
         <a href="https://github.com/Jerome-Carter/ReIMAGE" target="_blank" class="nav-link"><span class="nav-text">GitHub</span></a>
     </div>
-    <form class="search">
+    <form class="search" [formGroup]="searchForm" (ngSubmit)="onSearch()">
         <label for="search_input">
-            <input id="search_input" type="text" placeholder="Search for keywords...">
+            <input id="search_input" type="text" placeholder="Search for keywords..." formControlName="searchString">
         </label>
+        <button type="submit" style="visibility: hidden;" [disabled]="!searchForm.valid"></button>
     </form>
     <div class="header-actions">
-        <a href="..." class="nav-link nav-icon" aria-label="profile">
+        <a class="nav-link nav-icon" aria-label="profile">
             <clr-icon shape="user"></clr-icon>
         </a>
-        <a href="..." class="nav-link nav-icon" aria-label="settings">
+        <a class="nav-link nav-icon" aria-label="settings">
             <clr-icon shape="cog"></clr-icon>
         </a>
     </div>
