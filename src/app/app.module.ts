@@ -8,13 +8,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { SubNavBarComponent } from './sub-nav-bar/sub-nav-bar.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     SubNavBarComponent,
-    SideNavComponent
+    SideNavComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
