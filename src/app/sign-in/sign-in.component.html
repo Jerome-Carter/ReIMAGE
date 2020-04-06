@@ -7,8 +7,8 @@
         </section>
         <div class="login-group">
             <clr-input-container>
-                <label class="clr-sr-only">Username</label>
-                <input type="text" name="username" clrInput placeholder="Username" formControlName="username"/>
+                <label class="clr-sr-only">Username or Email</label>
+                <input type="text" name="username" clrInput placeholder="Username or Email" formControlName="username"/>
             </clr-input-container>
             <clr-password-container>
                 <label class="clr-sr-only">Password</label>
@@ -19,10 +19,10 @@
                 <input type="checkbox" name="rememberMe" clrCheckbox formControlName="rememberMe"/>
             </clr-checkbox-wrapper>
             <div *ngIf="auth_failure" class="error active">
-                Invalid user name or password
+                Invalid Username/Email or password
             </div>
             <button type="submit" class="btn btn-primary" [disabled]="!signinForm.valid">NEXT</button>
-            <a class="signup">Create an Account</a>
+            <a routerLink="/create-account" routerLinkActive="active" class="signup">Create an Account</a>
         </div>
     </form>
 </div>

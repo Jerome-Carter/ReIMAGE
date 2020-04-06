@@ -1,0 +1,36 @@
+<div style="overflow-x: hidden;" class="login-wrapper">
+    <form class="login" [formGroup]="createAccountForm" (ngSubmit)="createAccount()">
+        <section class="title">
+            <h3 class="welcome">Welcome to</h3>
+            ReIMAGE
+            <h5 class="hint">Create a ReIMAGE Account to access more features.</h5>
+        </section>
+        <div class="login-group">
+            <clr-input-container>
+                <label class="clr-sr-only">First Name</label>
+                <input type="text" name="first" clrInput placeholder="First Name" formControlName="first"/>
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Last Name</label>
+                <input type="text" name="last" clrInput placeholder="Last Name" formControlName="last"/>
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" name="username" clrInput placeholder="Username" formControlName="username"/>
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Email</label>
+                <input type="email" name="email" clrInput placeholder="Email" formControlName="email"/>
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" name="password" clrPassword placeholder="Password" formControlName="password"/>
+            </clr-password-container>
+            <div *ngIf="auth_failure" class="error active">
+                {{ failure_message }}
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!createAccountForm.valid">NEXT</button>
+            <a routerLink="/signin" routerLinkActive="active" class="signup">Already have an account? Sign In</a>
+        </div>
+    </form>
+</div>
