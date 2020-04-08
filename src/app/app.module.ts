@@ -12,6 +12,7 @@ import { SubNavBarComponent } from './sub-nav-bar/sub-nav-bar.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+import { EditorComponent } from './editor/editor.component';
 
 const appRoutes: Routes = [
   { path: 'signin', component: SignInComponent },
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     SubNavBarComponent,
     SideNavComponent,
     SignInComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    EditorComponent
   ],
   imports: [
     RouterModule.forRoot(

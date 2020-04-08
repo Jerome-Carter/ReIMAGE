@@ -29,7 +29,7 @@
             <div *ngIf="auth_failure" class="error active">
                 {{ failure_message }}
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!createAccountForm.valid">NEXT</button>
+            <button type="submit" class="btn btn-submit" [disabled]="!createAccountForm.valid">NEXT</button>
             <a routerLink="/signin" routerLinkActive="active" class="signup">Already have an account? Sign In</a>
         </div>
     </form>

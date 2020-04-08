@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+.btn-submit {
+    border-color: hsl(282, 100%, 22%);
+    background-color: hsl(282, 100%, 22%);
+    color: #ffffff;
+}
+
+.btn-submit:hover {
+    background-color: #271335;
+    color: #ffffff;
+}

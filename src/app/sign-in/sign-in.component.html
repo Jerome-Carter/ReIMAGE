@@ -21,7 +21,7 @@
             <div *ngIf="auth_failure" class="error active">
                 Invalid Username/Email or password
             </div>
-            <button type="submit" class="btn btn-primary" [disabled]="!signinForm.valid">NEXT</button>
+            <button type="submit" class="btn btn-submit" [disabled]="!signinForm.valid">NEXT</button>
             <a routerLink="/create-account" routerLinkActive="active" class="signup">Create an Account</a>
         </div>
     </form>
