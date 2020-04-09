@@ -2,8 +2,17 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { config } from '../../config'
+
 export const environment = {
-  production: false
+  production: false,
+  auth: {
+    clientID: config.auth.clientID,
+    domain: config.auth.domain, // e.g., https://you.auth0.com/
+    audience: config.auth.audience, // e.g., http://localhost:8080
+    redirect: 'http://localhost:4200/callback',
+    scope: 'openid profile email'
+  }
 };
 
 /*

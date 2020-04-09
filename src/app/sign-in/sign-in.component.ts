@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,7 +24,7 @@ export class SignInComponent implements OnInit {
   private email: String
   private rememberMe: boolean
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
 
   signIn() {
     this.username = this.signinForm.value.username

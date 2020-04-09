@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   private searchString: String
 
-  constructor() { }
+  constructor(public authService: AuthService) {}
 
   onSearch() {
     this.searchString = this.searchForm.value.searchString

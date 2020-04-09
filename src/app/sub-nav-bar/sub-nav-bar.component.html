@@ -15,11 +15,11 @@
         <li class="nav-item" style="margin: auto">
             <a href="javascript://" class="nav-link">Explore</a>
         </li>
-        <li class="nav-item" style="margin: auto">
-            <a routerLink="/create-account" routerLinkActive="active" class="nav-link">Create Account</a>
+        <li class="nav-item" style="margin: auto" *ngIf="!authService.isLoggedIn">
+            <a routerLinkActive="active" class="nav-link" (click)="authService.login()">Sign In</a>
         </li>
-        <li class="nav-item" style="margin: auto">
-            <a routerLink="/signin" routerLinkActive="active" class="nav-link">Sign In</a>
+        <li class="nav-item" style="margin: auto" *ngIf="authService.isLoggedIn">
+            <a routerLinkActive="active" class="nav-link" (click)="authService.logout()">Log out</a>
         </li>
     </ul>
 </nav>

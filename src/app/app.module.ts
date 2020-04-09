@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,12 +14,29 @@ import { SideNavComponent } from './side-nav/side-nav.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
 import { EditorComponent } from './editor/editor.component';
+import { CallbackComponent } from './callback.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+import { ExploreComponent } from './explore/explore.component';
 
 const appRoutes: Routes = [
-  { path: 'signin', component: SignInComponent },
-  { path: 'create-account', component: CreateAccountComponent },
-  { path: '',
-    redirectTo: '/create-account',
+  // { path: 'signin', component: SignInComponent },
+  // { path: 'create-account', component: CreateAccountComponent },
+  { path: 'explore', component: ExploreComponent },
+  { 
+    path: 'editor',
+    component: EditorComponent,
+    canActivate: [
+      AuthGuard
+    ]
+  },
+  {
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: '',
+    redirectTo: '/explore',
     pathMatch: 'full'
   },
   // { path: '**', component: PageNotFoundComponent }
@@ -32,7 +50,9 @@ const appRoutes: Routes = [
     SideNavComponent,
     SignInComponent,
     CreateAccountComponent,
-    EditorComponent
+    EditorComponent,
+    CallbackComponent,
+    ExploreComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -40,12 +60,16 @@ const appRoutes: Routes = [
       // { enableTracing: true } // <-- debugging purposes only
     ),
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     ClarityModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
